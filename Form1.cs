@@ -109,7 +109,9 @@ namespace Icosahedron
 
         private void Cube_CheckedChanged(object sender, EventArgs e)
         {
-            if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
+            try
+            {
+if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
             {
                 if (CubeRadiobutton.Checked)
                     choosingOfModel = 0;
@@ -117,6 +119,13 @@ namespace Icosahedron
                     choosingOfModel = 1;
 
             }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Укажите размер грани!!!");
+
+            }
+            
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -188,7 +197,9 @@ namespace Icosahedron
 
         private void Icosahedron_CheckedChanged(object sender, EventArgs e)
         {
-            if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
+            try
+            {
+if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
             {
                 if(Icosahedron.Checked)
                     choosingOfModel = 1;
@@ -196,6 +207,12 @@ namespace Icosahedron
                     choosingOfModel = 0;
                 scene.PrepareSceneImage();
             }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Укажите размер грани!!!");
+            }
+            
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
