@@ -9,14 +9,44 @@ namespace Icosahedron.Math
     public struct Vector3
     {
         private float[] values;
-        public Vector3(float x, float y, float z)
+        public bool isVectorRotate; 
+        public Vector3(float x, float y, float z,bool isVectorRotate = false)
         {
             values = new float[3];
+            this.isVectorRotate = isVectorRotate;
             values[0] = x; values[1] = y; values[2] = z;
         }
-        public float X { get { return values[0]; } set { values[0] = value; } }
-        public float Y { get { return values[1]; } set { values[1] = value; } }
-        public float Z { get { return values[2]; } set { values[2] = value; } }
+        public float X { get { return values[0]; }
+            set {
+                if (isVectorRotate)
+                {
+                    if (value >= 360)
+                        value -= 360;
+                    if (value <= -360)
+                        value += 360;
+                }
+                values[0] = value;
+            } }
+        public float Y { get { return values[1]; } set {
+                if (isVectorRotate)
+                {
+                    if (value >= 360)
+                        value -= 360;
+                    if (value <= -360)
+                        value += 360;
+                }
+                values[1] = value;
+            } }
+        public float Z { get { return values[2]; } set {
+                if (isVectorRotate)
+                {
+                    if (value >= 360)
+                        value -= 360;
+                    if (value <= -360)
+                        value += 360;
+                }
+                values[2] = value;
+            } }
         public float this[int idx]
         {
             get { return values[idx]; }

@@ -54,7 +54,7 @@ namespace Icosahedron
         private void trackBarSpeed_ValueChanged(object sender, EventArgs e)
         { 
             timer1.Enabled = true;
-            timer1.Interval = 201 - trackBarSpeed.Value;
+            //timer1.Interval = 201 - trackBarSpeed.Value;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -63,15 +63,15 @@ namespace Icosahedron
         }
 
 
-        public void CreateModel(byte choose, Vector3 position, Vector3 rotation)
+        public void CreateModel(byte choose, Vector3 position, Vector3 rotation, Vector3 scale, Vector3 rotating)
         {
             switch (choose)
             {
                 case 0:
-                    scene.objects.Add(new Transform(new Cube(new Vector3(-0.5f, 0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), float.Parse(lengthOfTriangle.Text)), scene , position, rotation));
+                    scene.objects.Add(new Transform(new Cube(new Vector3(-0.5f, 0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), float.Parse(lengthOfTriangle.Text)), scene , position, rotation, scale, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, SetSclX, SetSclY, SetSclZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, GetSclX, GetSclY, GetSclZ, SetRotatingX, SetRotatingY, SetRotatingZ));
                     break;
                 case 1:
-                    scene.objects.Add(new Transform(new Models.IcosahedronModel(float.Parse(lengthOfTriangle.Text)), scene, position, rotation));
+                    scene.objects.Add(new Transform(new Models.IcosahedronModel(float.Parse(lengthOfTriangle.Text)), scene, position, rotation, scale, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, SetSclX, SetSclY, SetSclZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, GetSclX, GetSclY, GetSclZ, SetRotatingX, SetRotatingY, SetRotatingZ));
                     break;
             }
             label9.Text = "" +  scene.objects.Count;
@@ -184,8 +184,49 @@ namespace Icosahedron
             }
         }
 
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+ int i = 0;
+            foreach(var _object in scene.objects)
+            {
+                
+                if(i == ThisChoiseObject.Value)
+                {
+                    scene.selectedObject = _object;
+                }
+                i++;
+            }
+            scene.selectedObject.CheckTextBox();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            //scene.selectedObject.Update();
+            foreach(var _object in scene.objects)
+            {
+                _object.Update();
+            }
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
+            Vector3 position = new Vector3(), rotation = new Vector3(), scale = new Vector3(), rotating = new Vector3();
+            try
+            {
+                position = new Vector3(int.Parse(SetCreatePosX.Text), int.Parse(SetCreatePosY.Text), int.Parse(SetCreatePosZ.Text));
+                rotation = new Vector3(int.Parse(SetCreateRotX.Text), int.Parse(SetCreateRotY.Text), int.Parse(SetCreateRotZ.Text));
+                scale = new Vector3(int.Parse(SetCreateSclX.Text), int.Parse(SetCreateSclY.Text), int.Parse(SetCreateSclZ.Text));
+                rotating = new Vector3(int.Parse(SetCreateRotatingX.Text), int.Parse(SetCreateRotatingY.Text), int.Parse(SetCreateRotatingZ.Text));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Введите корректные данные");
+            }
             if (!float.TryParse(lengthOfTriangle.Text.Replace('.', ','), out trianglesLength))
             {
                 MessageBox.Show("Введите корректные данные");
@@ -198,7 +239,7 @@ namespace Icosahedron
                 }
                 else
                 {
-                    CreateModel(choosingOfModel, new Vector3(int.Parse(SetPosX.Text), int.Parse(SetPosY.Text), int.Parse(SetPosZ.Text)), new Vector3(int.Parse(SetRotX.Text), int.Parse(SetRotY.Text), int.Parse(SetRotZ.Text)));
+                    CreateModel(choosingOfModel, position, rotation, scale, rotating);
                     scene.PrepareSceneImage();
                 }
             }

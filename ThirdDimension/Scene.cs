@@ -13,9 +13,9 @@ namespace Icosahedron.ThirdDimension
     public class Scene
     {
         public List<IObject> objects = new List<IObject>();
-        
+        public IObject selectedObject;
 
-        
+
         public void SetLines()
         {
             foreach (var m in objects)
