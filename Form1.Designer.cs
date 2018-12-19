@@ -143,6 +143,11 @@
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MyPictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.LeftGroupBox.SuspendLayout();
@@ -425,11 +430,12 @@
             // 
             // RightBelowGroupBox
             // 
+            this.RightBelowGroupBox.Controls.Add(this.radioButton1);
             this.RightBelowGroupBox.Controls.Add(this.RotationRadioButton);
             this.RightBelowGroupBox.Controls.Add(this.MoveRadioButton);
             this.RightBelowGroupBox.Location = new System.Drawing.Point(822, 94);
             this.RightBelowGroupBox.Name = "RightBelowGroupBox";
-            this.RightBelowGroupBox.Size = new System.Drawing.Size(115, 86);
+            this.RightBelowGroupBox.Size = new System.Drawing.Size(115, 102);
             this.RightBelowGroupBox.TabIndex = 22;
             this.RightBelowGroupBox.TabStop = false;
             this.RightBelowGroupBox.Text = "Тип указателя:";
@@ -744,7 +750,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(855, 208);
+            this.label9.Location = new System.Drawing.Point(855, 224);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 13);
             this.label9.TabIndex = 26;
@@ -1252,17 +1258,70 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(836, 183);
+            this.label23.Location = new System.Drawing.Point(836, 205);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(88, 13);
             this.label23.TabIndex = 27;
             this.label23.Text = "Кол-во моделей";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(17, 71);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(73, 17);
+            this.radioButton1.TabIndex = 24;
+            this.radioButton1.Text = "Скейлинг";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(797, 325);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(152, 23);
+            this.button3.TabIndex = 28;
+            this.button3.Text = "Увеличить в 2 раза";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(797, 380);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(152, 23);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Увеличить в 2 раза";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(855, 357);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(13, 13);
+            this.label24.TabIndex = 30;
+            this.label24.Text = "0";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(855, 300);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(55, 13);
+            this.label43.TabIndex = 31;
+            this.label43.Text = "Скейлинг";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1347, 592);
+            this.Controls.Add(this.label43);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label9);
@@ -1436,6 +1495,11 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         public System.Windows.Forms.Label label23;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label43;
     }
 }
 

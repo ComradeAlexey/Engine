@@ -32,6 +32,7 @@ namespace Icosahedron
         float trianglesLength = 0;
         byte choosingOfModel, pointerType;
         Point lastPosition = new Point();
+        float scalingCoof = 0;
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
@@ -68,10 +69,10 @@ namespace Icosahedron
             switch (choose)
             {
                 case 0:
-                    scene.objects.Add(new Transform(new Cube(new Vector3(-0.5f, 0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), float.Parse(lengthOfTriangle.Text)), scene , position, rotation, scale, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, SetSclX, SetSclY, SetSclZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, GetSclX, GetSclY, GetSclZ, SetRotatingX, SetRotatingY, SetRotatingZ));
+                    scene.objects.Add(new Transform(new Cube(new Vector3(-0.5f, 0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), float.Parse(lengthOfTriangle.Text)), scene , position, rotation, scale, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, SetSclX, SetSclY, SetSclZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, GetSclX, GetSclY, GetSclZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text)));
                     break;
                 case 1:
-                    scene.objects.Add(new Transform(new Models.IcosahedronModel(float.Parse(lengthOfTriangle.Text)), scene, position, rotation, scale, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, SetSclX, SetSclY, SetSclZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, GetSclX, GetSclY, GetSclZ, SetRotatingX, SetRotatingY, SetRotatingZ));
+                    scene.objects.Add(new Transform(new Models.IcosahedronModel(float.Parse(lengthOfTriangle.Text)), scene, position, rotation, scale, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, SetSclX, SetSclY, SetSclZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, GetSclX, GetSclY, GetSclZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text)));
                     break;
             }
             label9.Text = "" +  scene.objects.Count;
@@ -146,7 +147,6 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
                             if (i == ThisChoiseObject.Value)
                             {
                                 _object.SetPosition(e.X, e.Y);
-                                lastPosition = e.Location;
                                 Invalidate();
                             }
                             i++;
@@ -163,12 +163,28 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
                             {
                                 _object.SetRotate(e.X, e.Y);
                                 
-                                lastPosition = e.Location;
                                 Invalidate();
                             }
                             i++;
                         }
                     }
+                    break;
+                case 2:
+                    
+
+                        int a = 0;
+                        foreach (var _object in scene.objects)
+                        {
+                            if (a == ThisChoiseObject.Value)
+                            {
+                                if(scalingCoof != 0)
+                                    _object.SetScale(scalingCoof*2);
+
+                                Invalidate();
+                            }
+                        a++;
+                        }
+                    
                     break;
             }
 
@@ -238,6 +254,7 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
         private void timer2_Tick(object sender, EventArgs e)
         {
             int i = 0;
+            label24.Text = scalingCoof + "";
             ThisChoiseObject.Maximum = scene.objects.Count - 1;
             ThisChoiseObject.Minimum = 0;
             foreach(var _object in scene.objects)
@@ -246,6 +263,21 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
                 if (i == ThisChoiseObject.Value)
                     _object.DataDisplay();
             }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            pointerType = 2;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            scalingCoof++;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            scalingCoof--;
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -15,36 +15,38 @@ namespace Objects
 
     namespace Transform
     {
+        //интерфейс объекта, содержит методы для взаимодействия с объектом
         public interface IObject
         {
-            List<IModel> GetModel();
-            List<KeyValuePair<PolyLine3D, Color>> GetLinesAndColors();
-            Vector3 GetPosition();
-            List<PolyLine3D> GetLines();
-            List<Color> GetColors();
-            Camera GetCamera();
-            void Update();
-            void CheckTextBox();
-            void DataDisplay();
-            void SetRotate(float x, float y);
-            void SetPosition(float x, float y);
+            List<IModel> GetModel();//получение модели, модель - куб, икосаэдр
+            List<KeyValuePair<PolyLine3D, Color>> GetLinesAndColors();//получение списка линий и цветов для модели
+            Vector3 GetPosition();//получаем позицию объекта
+            List<PolyLine3D> GetLines();//получаем линии объекта
+            List<Color> GetColors();//получаем цвета линий
+            Camera GetCamera();//получаем камеру
+            void Update();//обновление объекта(глобально)
+            void CheckTextBox();//проверка входных данных
+            void DataDisplay();//вывод данных в отдельные окна
+            void SetRotate(float x, float y);//установка поворота объекта
+            void SetPosition(float x, float y);//установка позиции объекта
+            void SetScale(float delta);//установка скейла объекта
+            
         }
         public class Transform : IObject
         {
-            public Camera camera;
-            public List<IModel> Model = new List<IModel>();
-            List<KeyValuePair<PolyLine3D, Color>> linesAndColors = new List<KeyValuePair<PolyLine3D, Color>>();
-            public List<PolyLine3D> Lines = new List<PolyLine3D>();
-            public List<Color> Colors = new List<Color>();
-            string name;
-            Vector3 moveVector;
-            public string Name { get => name; set => name = value; }
-            public Vector3 MoveVector { get => moveVector; set => moveVector = value; }
-            public Vector3 position, rotation, scale, rotating;
-            public TextBox posX, posY, posZ, rotX, rotY, rotZ, sclX, sclY, sclZ, rotatingX, rotatingY, rotatingZ;
-            public TextBox getPosX, getPosY, getPosZ, getRotX, getRotY, getRotZ, getSclX, getSclY, getSclZ;
-            public  bool isErrorUpdate;
-            public Label labelNameObject;
+            public Camera camera;//камера
+            public List<IModel> Model = new List<IModel>();//данные модели
+            List<KeyValuePair<PolyLine3D, Color>> linesAndColors = new List<KeyValuePair<PolyLine3D, Color>>();//лист с линиями и цветами модели
+            public List<PolyLine3D> Lines = new List<PolyLine3D>();//лист с линиями
+            public List<Color> Colors = new List<Color>();//лист с цветами
+            string name;//имя объекта
+            public string Name { get => name; set => name = value; }//свойство name
+            public Vector3 position, rotation, scale, rotating;//различные вектора, позиция, поворот, скейл, вектор скорости
+            public TextBox posX, posY, posZ, rotX, rotY, rotZ, sclX, sclY, sclZ, rotatingX, rotatingY, rotatingZ;//различные текст боксы нужные для ввода данных
+            public TextBox getPosX, getPosY, getPosZ, getRotX, getRotY, getRotZ, getSclX, getSclY, getSclZ;//различные текст боксы нужные для ввода данных
+            public  bool isErrorUpdate;//ошибка обновления данных
+            public Label labelNameObject;//надпись имени объекта
+            public float EdgeLength;//Длина 
             public void Update()
             {
                 if (!isErrorUpdate)
@@ -65,7 +67,30 @@ namespace Objects
                 position.Y = y;
             }
 
-            public void CheckTextBox()
+            public void SetScale(float delta)
+            {
+                foreach (var _object in Model)
+                {
+                    List<PolyLine3D> l;
+                    l = _object.GetLines();
+                    for (int i = 0; i < l.Count(); i++)
+                    {
+                        for (int j = 0; j < l[i].points.Count(); j++)
+                        {
+                            l[i].points[j] *=  delta;
+                        }
+                    }
+                    Lines = l;
+                }
+
+            }
+
+            public List<PolyLine3D> SetLines(List<PolyLine3D> l)
+            {
+                Lines = l;
+                return Lines;
+            }
+                public void CheckTextBox()
             {
                 try
                 {
@@ -103,7 +128,7 @@ namespace Objects
                 getSclY.Text = scale.Y + "";
                 getSclZ.Text = scale.Z + "";
             }
-            public Transform(Cube cube, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _scale, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, TextBox sclX, TextBox sclY, TextBox sclZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox getSclX, TextBox getSclY, TextBox getSclZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ)
+            public Transform(Cube cube, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _scale, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, TextBox sclX, TextBox sclY, TextBox sclZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox getSclX, TextBox getSclY, TextBox getSclZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength)
             {
                 Model.Add(cube);
                 Name = "Cube object #" + scene.objects.Count;
@@ -142,9 +167,10 @@ namespace Objects
                 this.rotatingZ = rotatingZ;
                 scale = _scale;
                 rotating = _rotating;
+                this.EdgeLength = EdgeLength;
             }
 
-            public Transform(IcosahedronModel icosahedronModel, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _scale, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, TextBox sclX, TextBox sclY, TextBox sclZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox getSclX, TextBox getSclY, TextBox getSclZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ)
+            public Transform(IcosahedronModel icosahedronModel, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _scale, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, TextBox sclX, TextBox sclY, TextBox sclZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox getSclX, TextBox getSclY, TextBox getSclZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength)
             {
                 Model.Add(icosahedronModel);
                 Name = "Icosahedron object #" + scene.objects.Count;
@@ -183,6 +209,7 @@ namespace Objects
                 this.rotatingZ = rotatingZ;
                 scale = _scale;
                 rotating = _rotating;
+                this.EdgeLength = EdgeLength;
             }
 
             public List<IModel> GetModel()

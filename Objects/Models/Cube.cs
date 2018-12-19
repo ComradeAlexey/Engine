@@ -23,7 +23,7 @@ namespace Icosahedron.Models
             this.EdgeLength = EdgeLength;
         }
 
-        private List<PolyLine3D> l;
+        public List<PolyLine3D> l;
 
         public List<PolyLine3D> GetLines()
         {
