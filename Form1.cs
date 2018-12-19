@@ -129,7 +129,7 @@ namespace Icosahedron
             switch (pointerType)
             {
                 case 0:
-                    if (e.Button.HasFlag(MouseButtons.Left) && !lastPosition.IsEmpty)
+                    if (e.Button.HasFlag(MouseButtons.Left))
                     {
                         int i = 0;
                         foreach (var _object in scene.objects)
@@ -145,7 +145,7 @@ namespace Icosahedron
                     }
                     break;
                 case 1:
-                    if (e.Button.HasFlag(MouseButtons.Left) && !lastPosition.IsEmpty)
+                    if (e.Button.HasFlag(MouseButtons.Left))
                     {
                         int i = 0;
                         foreach (var _object in scene.objects)
