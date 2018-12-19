@@ -25,6 +25,9 @@ namespace Objects
             Camera GetCamera();
             void Update();
             void CheckTextBox();
+            void DataDisplay();
+            void SetRotate(float x, float y);
+            void SetPosition(float x, float y);
         }
         public class Transform : IObject
         {
@@ -48,10 +51,20 @@ namespace Objects
                 {
                     camera = new Camera(rotation.X+= rotating.X, rotation.Y += rotating.Y, rotation.Z += rotating.Z);
                 }
-                DataDisplay();
+                
+            }
+            public void SetRotate(float x, float y)
+            {
+                rotation.X = x;
+                rotation.Y = y;
             }
 
-            
+            public void SetPosition(float x, float y)
+            {
+                position.X = x;
+                position.Y = y;
+            }
+
             public void CheckTextBox()
             {
                 try
@@ -136,9 +149,11 @@ namespace Objects
                 Model.Add(icosahedronModel);
                 Name = "Icosahedron object #" + scene.objects.Count;
                 this.position = _position;
-                camera = new Camera(_rotation.X, _rotation.Y, _rotation.Z);
-                this.labelNameObject = labelNameObject;
 
+                this.rotation = _rotation;
+                this.rotation.isVectorRotate = true;
+                camera = new Camera(rotation.X, rotation.Y, rotation.Z);
+                this.labelNameObject = labelNameObject;
                 this.posX = posX;
                 this.posY = posY;
                 this.posZ = posZ;

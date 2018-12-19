@@ -131,20 +131,34 @@ namespace Icosahedron
                 case 0:
                     if (e.Button.HasFlag(MouseButtons.Left) && !lastPosition.IsEmpty)
                     {
-                        camera.Translation *= Matrix4.CreateMovingMatrix(e.X - lastPosition.X, e.Y - lastPosition.Y);
-                        lastPosition = e.Location;
-                        Invalidate();
+                        int i = 0;
+                        foreach (var _object in scene.objects)
+                        {
+                            if (i == ThisChoiseObject.Value)
+                            {
+                                _object.SetPosition(e.X, e.Y);
+                                lastPosition = e.Location;
+                                Invalidate();
+                            }
+                            i++;
+                        }
                     }
                     break;
                 case 1:
                     if (e.Button.HasFlag(MouseButtons.Left) && !lastPosition.IsEmpty)
                     {
-                        Point dp = new Point(e.X - lastPosition.X, e.Y - lastPosition.Y);
-                        float alpha = dp.X * (float)System.Math.PI / 180f;
-                        float betta = dp.Y * (float)System.Math.PI / 180f;
-                        camera.Projection = Matrix4.CreateRotationMatrix(0, -betta) * Matrix4.CreateRotationMatrix(1, alpha) * camera.Projection;
-                        lastPosition = e.Location;
-                        Invalidate();
+                        int i = 0;
+                        foreach (var _object in scene.objects)
+                        {
+                            if (i == ThisChoiseObject.Value)
+                            {
+                                _object.SetRotate(e.X, e.Y);
+                                
+                                lastPosition = e.Location;
+                                Invalidate();
+                            }
+                            i++;
+                        }
                     }
                     break;
             }
@@ -191,7 +205,7 @@ namespace Icosahedron
 
         private void button1_Click_1(object sender, EventArgs e)
         {
- int i = 0;
+            int i = 0;
             foreach(var _object in scene.objects)
             {
                 
@@ -206,10 +220,14 @@ namespace Icosahedron
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            //scene.selectedObject.Update();
+            int i = 0;
+            ThisChoiseObject.Maximum = scene.objects.Count - 1;
+            ThisChoiseObject.Minimum = 0;
             foreach(var _object in scene.objects)
             {
                 _object.Update();
+                if (i == ThisChoiseObject.Value)
+                    _object.DataDisplay();
             }
         }
 
@@ -222,29 +240,28 @@ namespace Icosahedron
                 rotation = new Vector3(int.Parse(SetCreateRotX.Text), int.Parse(SetCreateRotY.Text), int.Parse(SetCreateRotZ.Text));
                 scale = new Vector3(int.Parse(SetCreateSclX.Text), int.Parse(SetCreateSclY.Text), int.Parse(SetCreateSclZ.Text));
                 rotating = new Vector3(int.Parse(SetCreateRotatingX.Text), int.Parse(SetCreateRotatingY.Text), int.Parse(SetCreateRotatingZ.Text));
+                if (!float.TryParse(lengthOfTriangle.Text.Replace('.', ','), out trianglesLength))
+                {
+                    MessageBox.Show("Введите корректные данные");
+                }
+                else
+                {
+                    if (isLowZeroOrZero(trianglesLength))
+                    {
+                        MessageBox.Show("Длина меньше или равна нулю");
+                    }
+                    else
+                    {
+                        CreateModel(choosingOfModel, position, rotation, scale, rotating);
+                        scene.PrepareSceneImage();
+                    }
+                }
             }
             catch (Exception)
             {
                 MessageBox.Show("Введите корректные данные");
             }
-            if (!float.TryParse(lengthOfTriangle.Text.Replace('.', ','), out trianglesLength))
-            {
-                MessageBox.Show("Введите корректные данные");
-            }
-            else
-            {
-                if (isLowZeroOrZero(trianglesLength))
-                {
-                    MessageBox.Show("Длина меньше или равна нулю");
-                }
-                else
-                {
-                    CreateModel(choosingOfModel, position, rotation, scale, rotating);
-                    scene.PrepareSceneImage();
-                }
-            }
         }
-
         private bool CheckColor()
         {
             if (ColorBox.Checked)
