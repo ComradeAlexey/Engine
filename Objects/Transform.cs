@@ -24,12 +24,12 @@ namespace Objects
             List<PolyLine3D> GetLines();//получаем линии объекта
             List<Color> GetColors();//получаем цвета линий
             Camera GetCamera();//получаем камеру
-            void Update();//обновление объекта(глобально)
+            void Update(float delta);//обновление объекта(глобально)
+            void Update();
             void CheckTextBox();//проверка входных данных
             void DataDisplay();//вывод данных в отдельные окна
             void SetRotate(float x, float y);//установка поворота объекта
             void SetPosition(float x, float y);//установка позиции объекта
-            void SetScale(float delta);//установка скейла объекта
             
         }
         public class Transform : IObject
@@ -41,19 +41,29 @@ namespace Objects
             public List<Color> Colors = new List<Color>();//лист с цветами
             string name;//имя объекта
             public string Name { get => name; set => name = value; }//свойство name
-            public Vector3 position, rotation, scale, rotating;//различные вектора, позиция, поворот, скейл, вектор скорости
+            public Vector3 position, rotation, rotating;//различные вектора, позиция, поворот, скейл, вектор скорости
             public TextBox posX, posY, posZ, rotX, rotY, rotZ, sclX, sclY, sclZ, rotatingX, rotatingY, rotatingZ;//различные текст боксы нужные для ввода данных
             public TextBox getPosX, getPosY, getPosZ, getRotX, getRotY, getRotZ, getSclX, getSclY, getSclZ;//различные текст боксы нужные для ввода данных
             public  bool isErrorUpdate;//ошибка обновления данных
             public Label labelNameObject;//надпись имени объекта
             public float EdgeLength;//Длина 
+            public float scale;
+            public void Update(float scale)
+            {
+                if (!isErrorUpdate)
+                {
+                    camera = new Camera(rotation.X+= rotating.X, rotation.Y += rotating.Y, rotation.Z += rotating.Z, scale);
+                }
+                
+            }
+
             public void Update()
             {
                 if (!isErrorUpdate)
                 {
-                    camera = new Camera(rotation.X+= rotating.X, rotation.Y += rotating.Y, rotation.Z += rotating.Z);
+                    camera = new Camera(rotation.X += rotating.X, rotation.Y += rotating.Y, rotation.Z += rotating.Z, 1);
                 }
-                
+
             }
             public void SetRotate(float x, float y)
             {
@@ -67,23 +77,6 @@ namespace Objects
                 position.Y = y;
             }
 
-            public void SetScale(float delta)
-            {
-                foreach (var _object in Model)
-                {
-                    List<PolyLine3D> l;
-                    l = _object.GetLines();
-                    for (int i = 0; i < l.Count(); i++)
-                    {
-                        for (int j = 0; j < l[i].points.Count(); j++)
-                        {
-                            l[i].points[j] *=  delta;
-                        }
-                    }
-                    Lines = l;
-                }
-
-            }
 
             public List<PolyLine3D> SetLines(List<PolyLine3D> l)
             {
@@ -100,9 +93,6 @@ namespace Objects
                     rotation.X = float.Parse(rotX.Text);
                     rotation.Y = float.Parse(rotY.Text);
                     rotation.Z = float.Parse(rotZ.Text);
-                    scale.X = float.Parse(sclX.Text);
-                    scale.Y = float.Parse(sclY.Text);
-                    scale.Z = float.Parse(sclZ.Text);
 
                     rotating.X = float.Parse(rotatingX.Text);
                     rotating.Y = float.Parse(rotatingY.Text);
@@ -124,11 +114,9 @@ namespace Objects
                 getRotX.Text = rotation.X + "";
                 getRotY.Text = rotation.Y + "";
                 getRotZ.Text = rotation.Z + "";
-                getSclX.Text = scale.X + "";
-                getSclY.Text = scale.Y + "";
-                getSclZ.Text = scale.Z + "";
+
             }
-            public Transform(Cube cube, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _scale, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, TextBox sclX, TextBox sclY, TextBox sclZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox getSclX, TextBox getSclY, TextBox getSclZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength)
+            public Transform(Cube cube, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ,  TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, float scale)
             {
                 Model.Add(cube);
                 Name = "Cube object #" + scene.objects.Count;
@@ -136,7 +124,8 @@ namespace Objects
                 
                 this.rotation = _rotation;
                 this.rotation.isVectorRotate = true;
-                camera = new Camera(rotation.X, rotation.Y, rotation.Z);
+                this.scale = scale;
+                camera = new Camera(rotation.X, rotation.Y, rotation.Z, scale);
                 this.labelNameObject = labelNameObject;
                 this.posX = posX;
                 this.posY = posY;
@@ -146,10 +135,6 @@ namespace Objects
                 this.rotY = rotY;
                 this.rotZ = rotZ;
 
-                this.sclX = sclX;
-                this.sclY = sclY;
-                this.sclZ = sclZ;
-
                 this.getPosX = getPosX;
                 this.getPosY = getPosY;
                 this.getPosZ = getPosZ;
@@ -158,19 +143,14 @@ namespace Objects
                 this.getRotY = getRotY;
                 this.getRotZ = getRotZ;
 
-                this.getSclX = getSclX;
-                this.getSclY = getSclY;
-                this.getSclZ = getSclZ;
-
                 this.rotatingX = rotatingX;
                 this.rotatingY = rotatingY;
                 this.rotatingZ = rotatingZ;
-                scale = _scale;
                 rotating = _rotating;
                 this.EdgeLength = EdgeLength;
             }
 
-            public Transform(IcosahedronModel icosahedronModel, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _scale, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, TextBox sclX, TextBox sclY, TextBox sclZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox getSclX, TextBox getSclY, TextBox getSclZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength)
+            public Transform(IcosahedronModel icosahedronModel, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, float scale)
             {
                 Model.Add(icosahedronModel);
                 Name = "Icosahedron object #" + scene.objects.Count;
@@ -178,7 +158,7 @@ namespace Objects
 
                 this.rotation = _rotation;
                 this.rotation.isVectorRotate = true;
-                camera = new Camera(rotation.X, rotation.Y, rotation.Z);
+                camera = new Camera(rotation.X, rotation.Y, rotation.Z, scale);
                 this.labelNameObject = labelNameObject;
                 this.posX = posX;
                 this.posY = posY;
@@ -188,10 +168,6 @@ namespace Objects
                 this.rotY = rotY;
                 this.rotZ = rotZ;
 
-                this.sclX = sclX;
-                this.sclY = sclY;
-                this.sclZ = sclZ;
-
                 this.getPosX = getPosX;
                 this.getPosY = getPosY;
                 this.getPosZ = getPosZ;
@@ -200,14 +176,9 @@ namespace Objects
                 this.getRotY = getRotY;
                 this.getRotZ = getRotZ;
 
-                this.getSclX = getSclX;
-                this.getSclY = getSclY;
-                this.getSclZ = getSclZ;
-
                 this.rotatingX = rotatingX;
                 this.rotatingY = rotatingY;
                 this.rotatingZ = rotatingZ;
-                scale = _scale;
                 rotating = _rotating;
                 this.EdgeLength = EdgeLength;
             }

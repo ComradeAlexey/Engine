@@ -62,6 +62,24 @@ namespace Icosahedron.Math
             return m;
         }
 
+        public static Matrix4 Two()
+        {
+            var m = Zero();
+            for (int i = 0; i < 3; i++)
+                m[i, i] = 2;
+            m[3, 3] = 1;
+            return m;
+        }
+
+        public static Matrix4 Scrolling(float d)
+        {
+            var m = Zero();
+            for (int i = 0; i < 3; i++)
+                m[i, i] = d;
+            m[3, 3] = 1;
+            return m;
+        }
+
         public static Matrix4 Create(float[,] matrix)
         {
             return new Matrix4(matrix);

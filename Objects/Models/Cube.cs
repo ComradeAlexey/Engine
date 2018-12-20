@@ -11,20 +11,28 @@ namespace Icosahedron.Models
 {
     public class Cube : IModel
     {
-        public Transform transform;
         public Vector3 TLF { get; private set; }
         public Vector3 BRN { get; private set; }
         public float EdgeLength { get; set; }
-
+        public float EdgeLengthScaling { get; set; }
         public Cube(Vector3 tlf, Vector3 brn, float EdgeLength)
         {
             TLF = tlf;
             BRN = brn;
             this.EdgeLength = EdgeLength;
+            EdgeLengthScaling = EdgeLength;
         }
 
         public List<PolyLine3D> l;
-
+        public void SetEdgeLenght(float edgeLenght)
+        {
+            if (edgeLenght > 0)
+                EdgeLengthScaling = EdgeLength * edgeLenght;
+            else if (edgeLenght < 0)
+                EdgeLengthScaling = EdgeLength / edgeLenght;
+            else
+                EdgeLengthScaling = EdgeLength;
+        }
         public List<PolyLine3D> GetLines()
         {
             l = new List<PolyLine3D>();
@@ -57,7 +65,7 @@ namespace Icosahedron.Models
             {
                 for (int j = 0; j < l[i].points.Count(); j++)
                 {
-                    l[i].points[j] *= EdgeLength;
+                    l[i].points[j] *= EdgeLengthScaling;
                 }
             }
         }

@@ -42,6 +42,20 @@
             this.CubeRadiobutton = new System.Windows.Forms.RadioButton();
             this.Icosahedron = new System.Windows.Forms.RadioButton();
             this.LeftGroupBox = new System.Windows.Forms.GroupBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.SetCreateRotatingZ = new System.Windows.Forms.TextBox();
+            this.SetCreateRotatingY = new System.Windows.Forms.TextBox();
+            this.SetCreateRotatingX = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.SetCreateSclZ = new System.Windows.Forms.TextBox();
+            this.SetCreateSclY = new System.Windows.Forms.TextBox();
+            this.SetCreateSclX = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.SetCreateRotZ = new System.Windows.Forms.TextBox();
             this.SetCreateRotY = new System.Windows.Forms.TextBox();
@@ -56,15 +70,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.RightBelowGroupBox = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.RotationRadioButton = new System.Windows.Forms.RadioButton();
             this.MoveRadioButton = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ColorBox = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.SetRotatingZ = new System.Windows.Forms.TextBox();
+            this.SetRotatingY = new System.Windows.Forms.TextBox();
+            this.SetRotatingX = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.PositionPanel = new System.Windows.Forms.GroupBox();
             this.SetPosZ = new System.Windows.Forms.TextBox();
             this.SetPosY = new System.Windows.Forms.TextBox();
@@ -91,6 +113,13 @@
             this.ThisChoiseObject = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.GetPosZ = new System.Windows.Forms.TextBox();
@@ -114,71 +143,45 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.SetRotatingZ = new System.Windows.Forms.TextBox();
-            this.SetRotatingY = new System.Windows.Forms.TextBox();
-            this.SetRotatingX = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.SetCreateRotatingZ = new System.Windows.Forms.TextBox();
-            this.SetCreateRotatingY = new System.Windows.Forms.TextBox();
-            this.SetCreateRotatingX = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.SetCreateSclZ = new System.Windows.Forms.TextBox();
-            this.SetCreateSclY = new System.Windows.Forms.TextBox();
-            this.SetCreateSclX = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.MyPictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.LeftGroupBox.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.RightBelowGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.RightBelowGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.PositionPanel.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThisChoiseObject)).BeginInit();
             this.panel2.SuspendLayout();
+            this.groupBox14.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // MyPictureBox
             // 
             this.MyPictureBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.MyPictureBox.Location = new System.Drawing.Point(0, 30);
+            this.MyPictureBox.Location = new System.Drawing.Point(2, 2);
             this.MyPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.MyPictureBox.Name = "MyPictureBox";
             this.MyPictureBox.Size = new System.Drawing.Size(601, 414);
+            this.MyPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.MyPictureBox.TabIndex = 0;
             this.MyPictureBox.TabStop = false;
             this.MyPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -218,6 +221,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1347, 24);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.menuStrip1_Scroll);
             // 
             // файлToolStripMenuItem
             // 
@@ -285,6 +289,138 @@
             this.LeftGroupBox.TabIndex = 21;
             this.LeftGroupBox.TabStop = false;
             this.LeftGroupBox.Text = "Стартовые параметры:";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.SetCreateRotatingZ);
+            this.groupBox12.Controls.Add(this.SetCreateRotatingY);
+            this.groupBox12.Controls.Add(this.SetCreateRotatingX);
+            this.groupBox12.Controls.Add(this.label34);
+            this.groupBox12.Controls.Add(this.label35);
+            this.groupBox12.Controls.Add(this.label36);
+            this.groupBox12.Location = new System.Drawing.Point(14, 406);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(163, 100);
+            this.groupBox12.TabIndex = 22;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Постоянный поворот объекта";
+            // 
+            // SetCreateRotatingZ
+            // 
+            this.SetCreateRotatingZ.Location = new System.Drawing.Point(112, 52);
+            this.SetCreateRotatingZ.Name = "SetCreateRotatingZ";
+            this.SetCreateRotatingZ.Size = new System.Drawing.Size(44, 20);
+            this.SetCreateRotatingZ.TabIndex = 11;
+            // 
+            // SetCreateRotatingY
+            // 
+            this.SetCreateRotatingY.Location = new System.Drawing.Point(50, 52);
+            this.SetCreateRotatingY.Name = "SetCreateRotatingY";
+            this.SetCreateRotatingY.Size = new System.Drawing.Size(41, 20);
+            this.SetCreateRotatingY.TabIndex = 10;
+            // 
+            // SetCreateRotatingX
+            // 
+            this.SetCreateRotatingX.Location = new System.Drawing.Point(6, 52);
+            this.SetCreateRotatingX.Name = "SetCreateRotatingX";
+            this.SetCreateRotatingX.Size = new System.Drawing.Size(31, 20);
+            this.SetCreateRotatingX.TabIndex = 9;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label34.Location = new System.Drawing.Point(125, 28);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(16, 15);
+            this.label34.TabIndex = 8;
+            this.label34.Text = "Z";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label35.Location = new System.Drawing.Point(75, 28);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(16, 15);
+            this.label35.TabIndex = 7;
+            this.label35.Text = "Y";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label36.Location = new System.Drawing.Point(20, 28);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(16, 15);
+            this.label36.TabIndex = 6;
+            this.label36.Text = "X";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.SetCreateSclZ);
+            this.groupBox13.Controls.Add(this.SetCreateSclY);
+            this.groupBox13.Controls.Add(this.SetCreateSclX);
+            this.groupBox13.Controls.Add(this.label37);
+            this.groupBox13.Controls.Add(this.label38);
+            this.groupBox13.Controls.Add(this.label39);
+            this.groupBox13.Location = new System.Drawing.Point(14, 300);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(163, 100);
+            this.groupBox13.TabIndex = 21;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Размер объекта";
+            // 
+            // SetCreateSclZ
+            // 
+            this.SetCreateSclZ.Location = new System.Drawing.Point(112, 52);
+            this.SetCreateSclZ.Name = "SetCreateSclZ";
+            this.SetCreateSclZ.Size = new System.Drawing.Size(44, 20);
+            this.SetCreateSclZ.TabIndex = 11;
+            // 
+            // SetCreateSclY
+            // 
+            this.SetCreateSclY.Location = new System.Drawing.Point(50, 52);
+            this.SetCreateSclY.Name = "SetCreateSclY";
+            this.SetCreateSclY.Size = new System.Drawing.Size(41, 20);
+            this.SetCreateSclY.TabIndex = 10;
+            // 
+            // SetCreateSclX
+            // 
+            this.SetCreateSclX.Location = new System.Drawing.Point(6, 52);
+            this.SetCreateSclX.Name = "SetCreateSclX";
+            this.SetCreateSclX.Size = new System.Drawing.Size(31, 20);
+            this.SetCreateSclX.TabIndex = 9;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label37.Location = new System.Drawing.Point(125, 28);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(16, 15);
+            this.label37.TabIndex = 8;
+            this.label37.Text = "Z";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label38.Location = new System.Drawing.Point(75, 28);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(16, 15);
+            this.label38.TabIndex = 7;
+            this.label38.Text = "Y";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label39.Location = new System.Drawing.Point(20, 28);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(16, 15);
+            this.label39.TabIndex = 6;
+            this.label39.Text = "X";
             // 
             // groupBox3
             // 
@@ -418,6 +554,17 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "X";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.CubeRadiobutton);
+            this.groupBox1.Controls.Add(this.Icosahedron);
+            this.groupBox1.Location = new System.Drawing.Point(6, 19);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(106, 90);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Тип фигуры:";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(52, 513);
@@ -439,6 +586,17 @@
             this.RightBelowGroupBox.TabIndex = 22;
             this.RightBelowGroupBox.TabStop = false;
             this.RightBelowGroupBox.Text = "Тип указателя:";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(17, 71);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(73, 17);
+            this.radioButton1.TabIndex = 24;
+            this.radioButton1.Text = "Скейлинг";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // RotationRadioButton
             // 
@@ -464,17 +622,6 @@
             this.MoveRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.MoveRadioButton.UseVisualStyleBackColor = true;
             this.MoveRadioButton.CheckedChanged += new System.EventHandler(this.MoveRadioButton_CheckedChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.CubeRadiobutton);
-            this.groupBox1.Controls.Add(this.Icosahedron);
-            this.groupBox1.Location = new System.Drawing.Point(6, 19);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(106, 90);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Тип фигуры:";
             // 
             // ColorBox
             // 
@@ -522,6 +669,72 @@
             this.groupBox9.TabIndex = 13;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Установка значений объекта";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.SetRotatingZ);
+            this.groupBox11.Controls.Add(this.SetRotatingY);
+            this.groupBox11.Controls.Add(this.SetRotatingX);
+            this.groupBox11.Controls.Add(this.label31);
+            this.groupBox11.Controls.Add(this.label32);
+            this.groupBox11.Controls.Add(this.label33);
+            this.groupBox11.Location = new System.Drawing.Point(6, 346);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(163, 100);
+            this.groupBox11.TabIndex = 13;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Постоянный поворот объекта";
+            // 
+            // SetRotatingZ
+            // 
+            this.SetRotatingZ.Location = new System.Drawing.Point(112, 52);
+            this.SetRotatingZ.Name = "SetRotatingZ";
+            this.SetRotatingZ.Size = new System.Drawing.Size(44, 20);
+            this.SetRotatingZ.TabIndex = 11;
+            // 
+            // SetRotatingY
+            // 
+            this.SetRotatingY.Location = new System.Drawing.Point(50, 52);
+            this.SetRotatingY.Name = "SetRotatingY";
+            this.SetRotatingY.Size = new System.Drawing.Size(41, 20);
+            this.SetRotatingY.TabIndex = 10;
+            // 
+            // SetRotatingX
+            // 
+            this.SetRotatingX.Location = new System.Drawing.Point(6, 52);
+            this.SetRotatingX.Name = "SetRotatingX";
+            this.SetRotatingX.Size = new System.Drawing.Size(31, 20);
+            this.SetRotatingX.TabIndex = 9;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label31.Location = new System.Drawing.Point(125, 28);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(16, 15);
+            this.label31.TabIndex = 8;
+            this.label31.Text = "Z";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label32.Location = new System.Drawing.Point(75, 28);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(16, 15);
+            this.label32.TabIndex = 7;
+            this.label32.Text = "Y";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label33.Location = new System.Drawing.Point(20, 28);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(16, 15);
+            this.label33.TabIndex = 6;
+            this.label33.Text = "X";
             // 
             // PositionPanel
             // 
@@ -766,6 +979,72 @@
             this.panel2.Size = new System.Drawing.Size(203, 558);
             this.panel2.TabIndex = 26;
             // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.textBox1);
+            this.groupBox14.Controls.Add(this.textBox2);
+            this.groupBox14.Controls.Add(this.textBox3);
+            this.groupBox14.Controls.Add(this.label40);
+            this.groupBox14.Controls.Add(this.label41);
+            this.groupBox14.Controls.Add(this.label42);
+            this.groupBox14.Location = new System.Drawing.Point(18, 452);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(163, 100);
+            this.groupBox14.TabIndex = 14;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Постоянный поворот объекта";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(112, 52);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(44, 20);
+            this.textBox1.TabIndex = 11;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(50, 52);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(41, 20);
+            this.textBox2.TabIndex = 10;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(6, 52);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(31, 20);
+            this.textBox3.TabIndex = 9;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label40.Location = new System.Drawing.Point(125, 28);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(16, 15);
+            this.label40.TabIndex = 8;
+            this.label40.Text = "Z";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label41.Location = new System.Drawing.Point(75, 28);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(16, 15);
+            this.label41.TabIndex = 7;
+            this.label41.Text = "Y";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label42.Location = new System.Drawing.Point(20, 28);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(16, 15);
+            this.label42.TabIndex = 6;
+            this.label42.Text = "X";
+            // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.groupBox8);
@@ -991,270 +1270,6 @@
             this.timer2.Interval = 10;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.SetRotatingZ);
-            this.groupBox11.Controls.Add(this.SetRotatingY);
-            this.groupBox11.Controls.Add(this.SetRotatingX);
-            this.groupBox11.Controls.Add(this.label31);
-            this.groupBox11.Controls.Add(this.label32);
-            this.groupBox11.Controls.Add(this.label33);
-            this.groupBox11.Location = new System.Drawing.Point(6, 346);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(163, 100);
-            this.groupBox11.TabIndex = 13;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Постоянный поворот объекта";
-            // 
-            // SetRotatingZ
-            // 
-            this.SetRotatingZ.Location = new System.Drawing.Point(112, 52);
-            this.SetRotatingZ.Name = "SetRotatingZ";
-            this.SetRotatingZ.Size = new System.Drawing.Size(44, 20);
-            this.SetRotatingZ.TabIndex = 11;
-            // 
-            // SetRotatingY
-            // 
-            this.SetRotatingY.Location = new System.Drawing.Point(50, 52);
-            this.SetRotatingY.Name = "SetRotatingY";
-            this.SetRotatingY.Size = new System.Drawing.Size(41, 20);
-            this.SetRotatingY.TabIndex = 10;
-            // 
-            // SetRotatingX
-            // 
-            this.SetRotatingX.Location = new System.Drawing.Point(6, 52);
-            this.SetRotatingX.Name = "SetRotatingX";
-            this.SetRotatingX.Size = new System.Drawing.Size(31, 20);
-            this.SetRotatingX.TabIndex = 9;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label31.Location = new System.Drawing.Point(125, 28);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(16, 15);
-            this.label31.TabIndex = 8;
-            this.label31.Text = "Z";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label32.Location = new System.Drawing.Point(75, 28);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(16, 15);
-            this.label32.TabIndex = 7;
-            this.label32.Text = "Y";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label33.Location = new System.Drawing.Point(20, 28);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(16, 15);
-            this.label33.TabIndex = 6;
-            this.label33.Text = "X";
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.SetCreateRotatingZ);
-            this.groupBox12.Controls.Add(this.SetCreateRotatingY);
-            this.groupBox12.Controls.Add(this.SetCreateRotatingX);
-            this.groupBox12.Controls.Add(this.label34);
-            this.groupBox12.Controls.Add(this.label35);
-            this.groupBox12.Controls.Add(this.label36);
-            this.groupBox12.Location = new System.Drawing.Point(14, 406);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(163, 100);
-            this.groupBox12.TabIndex = 22;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Постоянный поворот объекта";
-            // 
-            // SetCreateRotatingZ
-            // 
-            this.SetCreateRotatingZ.Location = new System.Drawing.Point(112, 52);
-            this.SetCreateRotatingZ.Name = "SetCreateRotatingZ";
-            this.SetCreateRotatingZ.Size = new System.Drawing.Size(44, 20);
-            this.SetCreateRotatingZ.TabIndex = 11;
-            // 
-            // SetCreateRotatingY
-            // 
-            this.SetCreateRotatingY.Location = new System.Drawing.Point(50, 52);
-            this.SetCreateRotatingY.Name = "SetCreateRotatingY";
-            this.SetCreateRotatingY.Size = new System.Drawing.Size(41, 20);
-            this.SetCreateRotatingY.TabIndex = 10;
-            // 
-            // SetCreateRotatingX
-            // 
-            this.SetCreateRotatingX.Location = new System.Drawing.Point(6, 52);
-            this.SetCreateRotatingX.Name = "SetCreateRotatingX";
-            this.SetCreateRotatingX.Size = new System.Drawing.Size(31, 20);
-            this.SetCreateRotatingX.TabIndex = 9;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label34.Location = new System.Drawing.Point(125, 28);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(16, 15);
-            this.label34.TabIndex = 8;
-            this.label34.Text = "Z";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label35.Location = new System.Drawing.Point(75, 28);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(16, 15);
-            this.label35.TabIndex = 7;
-            this.label35.Text = "Y";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label36.Location = new System.Drawing.Point(20, 28);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(16, 15);
-            this.label36.TabIndex = 6;
-            this.label36.Text = "X";
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.SetCreateSclZ);
-            this.groupBox13.Controls.Add(this.SetCreateSclY);
-            this.groupBox13.Controls.Add(this.SetCreateSclX);
-            this.groupBox13.Controls.Add(this.label37);
-            this.groupBox13.Controls.Add(this.label38);
-            this.groupBox13.Controls.Add(this.label39);
-            this.groupBox13.Location = new System.Drawing.Point(14, 300);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(163, 100);
-            this.groupBox13.TabIndex = 21;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Размер объекта";
-            // 
-            // SetCreateSclZ
-            // 
-            this.SetCreateSclZ.Location = new System.Drawing.Point(112, 52);
-            this.SetCreateSclZ.Name = "SetCreateSclZ";
-            this.SetCreateSclZ.Size = new System.Drawing.Size(44, 20);
-            this.SetCreateSclZ.TabIndex = 11;
-            // 
-            // SetCreateSclY
-            // 
-            this.SetCreateSclY.Location = new System.Drawing.Point(50, 52);
-            this.SetCreateSclY.Name = "SetCreateSclY";
-            this.SetCreateSclY.Size = new System.Drawing.Size(41, 20);
-            this.SetCreateSclY.TabIndex = 10;
-            // 
-            // SetCreateSclX
-            // 
-            this.SetCreateSclX.Location = new System.Drawing.Point(6, 52);
-            this.SetCreateSclX.Name = "SetCreateSclX";
-            this.SetCreateSclX.Size = new System.Drawing.Size(31, 20);
-            this.SetCreateSclX.TabIndex = 9;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label37.Location = new System.Drawing.Point(125, 28);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(16, 15);
-            this.label37.TabIndex = 8;
-            this.label37.Text = "Z";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label38.Location = new System.Drawing.Point(75, 28);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(16, 15);
-            this.label38.TabIndex = 7;
-            this.label38.Text = "Y";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label39.Location = new System.Drawing.Point(20, 28);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(16, 15);
-            this.label39.TabIndex = 6;
-            this.label39.Text = "X";
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.textBox1);
-            this.groupBox14.Controls.Add(this.textBox2);
-            this.groupBox14.Controls.Add(this.textBox3);
-            this.groupBox14.Controls.Add(this.label40);
-            this.groupBox14.Controls.Add(this.label41);
-            this.groupBox14.Controls.Add(this.label42);
-            this.groupBox14.Location = new System.Drawing.Point(18, 452);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(163, 100);
-            this.groupBox14.TabIndex = 14;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Постоянный поворот объекта";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(112, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(44, 20);
-            this.textBox1.TabIndex = 11;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(50, 52);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(41, 20);
-            this.textBox2.TabIndex = 10;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(6, 52);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(31, 20);
-            this.textBox3.TabIndex = 9;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label40.Location = new System.Drawing.Point(125, 28);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(16, 15);
-            this.label40.TabIndex = 8;
-            this.label40.Text = "Z";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label41.Location = new System.Drawing.Point(75, 28);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(16, 15);
-            this.label41.TabIndex = 7;
-            this.label41.Text = "Y";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label42.Location = new System.Drawing.Point(20, 28);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(16, 15);
-            this.label42.TabIndex = 6;
-            this.label42.Text = "X";
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -1263,17 +1278,6 @@
             this.label23.Size = new System.Drawing.Size(88, 13);
             this.label23.TabIndex = 27;
             this.label23.Text = "Кол-во моделей";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(17, 71);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(73, 17);
-            this.radioButton1.TabIndex = 24;
-            this.radioButton1.Text = "Скейлинг";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // button3
             // 
@@ -1313,11 +1317,21 @@
             this.label43.TabIndex = 31;
             this.label43.Text = "Скейлинг";
             // 
+            // panel3
+            // 
+            this.panel3.AutoScroll = true;
+            this.panel3.Controls.Add(this.MyPictureBox);
+            this.panel3.Location = new System.Drawing.Point(12, 27);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(603, 415);
+            this.panel3.TabIndex = 32;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1347, 592);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.label43);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.button4);
@@ -1329,7 +1343,6 @@
             this.Controls.Add(this.ColorBox);
             this.Controls.Add(this.RightBelowGroupBox);
             this.Controls.Add(this.LeftGroupBox);
-            this.Controls.Add(this.MyPictureBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -1340,17 +1353,23 @@
             this.menuStrip1.PerformLayout();
             this.LeftGroupBox.ResumeLayout(false);
             this.LeftGroupBox.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.RightBelowGroupBox.ResumeLayout(false);
-            this.RightBelowGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.RightBelowGroupBox.ResumeLayout(false);
+            this.RightBelowGroupBox.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox9.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.PositionPanel.ResumeLayout(false);
             this.PositionPanel.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -1359,6 +1378,8 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThisChoiseObject)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -1366,14 +1387,8 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1500,6 +1515,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 

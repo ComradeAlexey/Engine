@@ -32,7 +32,7 @@ namespace Icosahedron
         float trianglesLength = 0;
         byte choosingOfModel, pointerType;
         Point lastPosition = new Point();
-        float scalingCoof = 0;
+        float scalingCoof = 4;
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
@@ -47,10 +47,7 @@ namespace Icosahedron
             MyPictureBox.Refresh();
         }
 
-        void MyPictureBox_MouseWheel(object sender, MouseEventArgs e)
-        {
-            camera.View *= Matrix4.CreateScrollingMatrix(e.Delta);
-        }
+       
 
         private void trackBarSpeed_ValueChanged(object sender, EventArgs e)
         { 
@@ -69,10 +66,10 @@ namespace Icosahedron
             switch (choose)
             {
                 case 0:
-                    scene.objects.Add(new Transform(new Cube(new Vector3(-0.5f, 0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), float.Parse(lengthOfTriangle.Text)), scene , position, rotation, scale, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, SetSclX, SetSclY, SetSclZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, GetSclX, GetSclY, GetSclZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text)));
+                    scene.objects.Add(new Transform(new Cube(new Vector3(-0.5f, 0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), float.Parse(lengthOfTriangle.Text)), scene , position, rotation, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text), scalingCoof));
                     break;
                 case 1:
-                    scene.objects.Add(new Transform(new Models.IcosahedronModel(float.Parse(lengthOfTriangle.Text)), scene, position, rotation, scale, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, SetSclX, SetSclY, SetSclZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, GetSclX, GetSclY, GetSclZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text)));
+                    scene.objects.Add(new Transform(new Models.IcosahedronModel(float.Parse(lengthOfTriangle.Text)), scene, position, rotation, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text), scalingCoof));
                     break;
             }
             label9.Text = "" +  scene.objects.Count;
@@ -133,9 +130,26 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
         {
             lastPosition = e.Location;
         }
+        void MyPictureBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            int i = 0;
+            foreach (var _object in scene.objects)
+            {
+                if (i == ThisChoiseObject.Value)
+                {
+                    _object.GetCamera().View *= Matrix4.CreateScrollingMatrix(e.Delta);
+
+                    Invalidate();
+                }
+                i++;
+            }
+
+        }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+            MyPictureBox.Focus();
+            //MessageBox.Show("ЛООООООООООООООООООООООХ!!!!!!!!!!!!!!!"+e.Delta);
             switch (pointerType)
             {
                 case 0:
@@ -170,20 +184,12 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
                     }
                     break;
                 case 2:
-                    
+                    if(e.Delta != 0)
+                    {
+                        MessageBox.Show("ЛООООООООООООООООООООООХ!!!!!!!!!!!!!!!");
+                    }
 
-                        int a = 0;
-                        foreach (var _object in scene.objects)
-                        {
-                            if (a == ThisChoiseObject.Value)
-                            {
-                                if(scalingCoof != 0)
-                                    _object.SetScale(scalingCoof*2);
-
-                                Invalidate();
-                            }
-                        a++;
-                        }
+                        
                     
                     break;
             }
@@ -257,11 +263,19 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
             label24.Text = scalingCoof + "";
             ThisChoiseObject.Maximum = scene.objects.Count - 1;
             ThisChoiseObject.Minimum = 0;
-            foreach(var _object in scene.objects)
+            foreach (var _object in scene.objects)
             {
-                _object.Update();
+
                 if (i == ThisChoiseObject.Value)
+                {
                     _object.DataDisplay();
+
+                }
+                else
+                {
+                    _object.Update();
+                }
+                i++;
             }
         }
 
@@ -280,6 +294,11 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
             scalingCoof--;
         }
 
+        private void menuStrip1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             Vector3 position = new Vector3(), rotation = new Vector3(), scale = new Vector3(), rotating = new Vector3();
@@ -287,7 +306,6 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
             {
                 position = new Vector3(int.Parse(SetCreatePosX.Text), int.Parse(SetCreatePosY.Text), int.Parse(SetCreatePosZ.Text));
                 rotation = new Vector3(int.Parse(SetCreateRotX.Text), int.Parse(SetCreateRotY.Text), int.Parse(SetCreateRotZ.Text));
-                scale = new Vector3(int.Parse(SetCreateSclX.Text), int.Parse(SetCreateSclY.Text), int.Parse(SetCreateSclZ.Text));
                 rotating = new Vector3(int.Parse(SetCreateRotatingX.Text), int.Parse(SetCreateRotatingY.Text), int.Parse(SetCreateRotatingZ.Text));
                 if (!float.TryParse(lengthOfTriangle.Text.Replace('.', ','), out trianglesLength))
                 {

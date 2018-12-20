@@ -19,7 +19,7 @@ namespace Icosahedron.ThirdDimension
             Translation = Matrix4.One();
         }
 
-        public Camera(float xRotate, float yRotate, float zRotate)
+        public Camera(float xRotate, float yRotate, float zRotate, float delta)
         {
             View = Matrix4.One();
             Projection = Matrix4.One();
