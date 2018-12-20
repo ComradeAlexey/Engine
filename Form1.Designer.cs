@@ -88,6 +88,7 @@
             this.ThisChoiseObject = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.GetRotatingZ = new System.Windows.Forms.TextBox();
             this.GetRotatingY = new System.Windows.Forms.TextBox();
@@ -95,7 +96,6 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.GetPosY = new System.Windows.Forms.TextBox();
             this.GetPosX = new System.Windows.Forms.TextBox();
@@ -125,8 +125,8 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThisChoiseObject)).BeginInit();
             this.panel2.SuspendLayout();
-            this.groupBox14.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            this.groupBox14.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -143,9 +143,7 @@
             this.MyPictureBox.TabIndex = 0;
             this.MyPictureBox.TabStop = false;
             this.MyPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
-            this.MyPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.MyPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.MyPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // timer1
             // 
@@ -696,7 +694,6 @@
             this.ThisChoiseObject.Name = "ThisChoiseObject";
             this.ThisChoiseObject.Size = new System.Drawing.Size(160, 20);
             this.ThisChoiseObject.TabIndex = 2;
-            this.ThisChoiseObject.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label9
             // 
@@ -715,6 +712,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(203, 449);
             this.panel2.TabIndex = 26;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.groupBox14);
+            this.groupBox10.Controls.Add(this.groupBox8);
+            this.groupBox10.Controls.Add(this.groupBox7);
+            this.groupBox10.Location = new System.Drawing.Point(6, 105);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(194, 340);
+            this.groupBox10.TabIndex = 13;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Получение значений объекта";
             // 
             // groupBox14
             // 
@@ -781,18 +790,6 @@
             this.label42.Size = new System.Drawing.Size(16, 15);
             this.label42.TabIndex = 6;
             this.label42.Text = "X";
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.groupBox14);
-            this.groupBox10.Controls.Add(this.groupBox8);
-            this.groupBox10.Controls.Add(this.groupBox7);
-            this.groupBox10.Location = new System.Drawing.Point(6, 105);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(194, 340);
-            this.groupBox10.TabIndex = 13;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Получение значений объекта";
             // 
             // groupBox8
             // 
@@ -976,9 +973,9 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThisChoiseObject)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.groupBox10.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);

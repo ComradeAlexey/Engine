@@ -24,14 +24,13 @@ namespace Objects
             List<PolyLine3D> GetLines();//получаем линии объекта
             List<Color> GetColors();//получаем цвета линий
             Camera GetCamera();//получаем камеру
-            void Update(float delta);//обновление объекта(глобально)
-            void Update();
+            void Update();//обновляет камеру
             void CheckTextBox();//проверка входных данных
             void DataDisplay();//вывод данных в отдельные окна
             void SetRotate(float x, float y);//установка поворота объекта
             void SetPosition(float x, float y);//установка позиции объекта
-            void SetView(Matrix4 view);
-            Matrix4 GetView(Matrix4 view);
+            void SetView(Matrix4 view);//установка матрицы вида
+            Matrix4 GetView(Matrix4 view);//получение матрицы вида
         }
         public class Transform : IObject
         {
@@ -48,59 +47,53 @@ namespace Objects
             public  bool isErrorUpdate;//ошибка обновления данных
             public Label labelNameObject;//надпись имени объекта
             public float EdgeLength;//Длина 
-            public float scale;
-            public Matrix4 view = Matrix4.One();
-            public void Update(float scale)
-            {
-                if (!isErrorUpdate)
-                {
-                    camera = new Camera(rotation.X+= rotating.X, rotation.Y += rotating.Y, rotation.Z += rotating.Z, scale);
-                    
-                }
-                
-            }
+            public Matrix4 view = Matrix4.One();//устанавливаем матрицу вида в стандартное положение 
 
             public void Update()
             {
                 if (!isErrorUpdate)
                 {
-                    camera = new Camera(rotation.X += rotating.X, rotation.Y += rotating.Y, rotation.Z += rotating.Z, 1);
-                    camera.View = view;
+                    camera = new Camera(rotation.X += rotating.X, rotation.Y += rotating.Y, rotation.Z += rotating.Z)
+                    {
+                        View = view
+                    };
+                    //обновляем камеру новыми данными
                 }
             }
-
+            //присваиваем переменным значения
             public void SetRotate(float x, float y)
             {
                 rotation.X = x;
                 rotation.Y = y;
             }
-
+            //присваиваем переменным значения
             public void SetPosition(float x, float y)
             {
                 position.X = x;
                 position.Y = y;
             }
-
+            //присваиваем переменным значения
             public List<PolyLine3D> SetLines(List<PolyLine3D> l)
             {
                 Lines = l;
                 return Lines;
             }
-
+            //присваиваем переменным значения
             public void SetView(Matrix4 view)
             {
                 this.view = view;
             }
-
+            //присваиваем переменным значения
             public Matrix4 GetView(Matrix4 view)
             {
                 return this.view *= view;
             }
-
+            //проверка текст боксов
             public void CheckTextBox()
             {
                 try
                 {
+                    //если вылазит исключение то идём в блок catch и выдаём сообщение об ошибке, и останавливаем цикл обновления камеры
                     position.X = float.Parse(posX.Text);
                     position.Y = float.Parse(posY.Text);
                     rotation.X = float.Parse(rotX.Text);
@@ -119,6 +112,8 @@ namespace Objects
                     isErrorUpdate = true; ;
                 }
             }
+
+            //выводим данные в определённые текст боксы
             public void DataDisplay()
             {
                 getPosX.Text = position.X + "";
@@ -131,7 +126,8 @@ namespace Objects
                 getRotatingZ.Text = rotating.Z + "";
 
             }
-            public Transform(Cube cube, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY,  TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getRotX, TextBox getRotY, TextBox getRotZ,  TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, float scale, TextBox getRotatingX, TextBox getRotatingY, TextBox getRotatingZ)
+            //инициализация объекта класса, в данном случае для куба
+            public Transform(Cube cube, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY,  TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getRotX, TextBox getRotY, TextBox getRotZ,  TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, TextBox getRotatingX, TextBox getRotatingY, TextBox getRotatingZ)
             {
                 Model.Add(cube);
                 Name = "Cube object #" + scene.objects.Count;
@@ -139,8 +135,7 @@ namespace Objects
                 
                 this.rotation = _rotation;
                 this.rotation.isVectorRotate = true;
-                this.scale = scale;
-                camera = new Camera(rotation.X, rotation.Y, rotation.Z, scale);
+                camera = new Camera(rotation.X, rotation.Y, rotation.Z);
                 this.labelNameObject = labelNameObject;
                 this.posX = posX;
                 this.posY = posY;
@@ -165,8 +160,8 @@ namespace Objects
                 rotating = _rotating;
                 this.EdgeLength = EdgeLength;
             }
-
-            public Transform(IcosahedronModel icosahedronModel, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY, TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, float scale, TextBox getRotatingX, TextBox getRotatingY, TextBox getRotatingZ)
+            //инициализация объекта класса, в данном случае для икосаэдра
+            public Transform(IcosahedronModel icosahedronModel, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY, TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, TextBox getRotatingX, TextBox getRotatingY, TextBox getRotatingZ)
             {
                 Model.Add(icosahedronModel);
                 Name = "Icosahedron object #" + scene.objects.Count;
@@ -174,7 +169,7 @@ namespace Objects
 
                 this.rotation = _rotation;
                 this.rotation.isVectorRotate = true;
-                camera = new Camera(rotation.X, rotation.Y, rotation.Z, scale);
+                camera = new Camera(rotation.X, rotation.Y, rotation.Z);
                 this.labelNameObject = labelNameObject;
                 this.posX = posX;
                 this.posY = posY;

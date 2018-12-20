@@ -18,9 +18,5 @@ namespace Icosahedron.Models
         {
             return new List<PolyLine3D>() { new PolyLine3D(new List<Math.Vector3>(){point1, point2}, false) };
         }
-        public void SetEdgeLenght(float edgeLenght)
-        {
-            //EdgeLength *= edgeLenght;
-        }
     }
 }

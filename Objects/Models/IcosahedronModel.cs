@@ -15,10 +15,6 @@ namespace Icosahedron.Models
         public float TrianglesLength { get; set; }
         public Vector3[] Vertices { get; protected set; }
         public List<Vector3> vertices;
-        public void SetEdgeLenght(float edgeLenght)
-        {
-            TrianglesLength *= edgeLenght;
-        }
         public Vector3 Center
         {
             get

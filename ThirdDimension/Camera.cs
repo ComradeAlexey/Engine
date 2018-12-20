@@ -19,7 +19,7 @@ namespace Icosahedron.ThirdDimension
             Translation = Matrix4.One();
         }
 
-        public Camera(float xRotate, float yRotate, float zRotate, float delta)
+        public Camera(float xRotate, float yRotate, float zRotate)
         {
             View = Matrix4.One();
             Projection = Matrix4.One();
@@ -33,11 +33,6 @@ namespace Icosahedron.ThirdDimension
         public Vector3 Model2Camera(Vector3 point)
         {
             return Translation * Projection * View * ((Vector4)point);
-        }
-
-        public Vector3 Camera2Model(Vector3 point)
-        {
-            return Projection * View * ((Vector4)point);
         }
     }
 }
