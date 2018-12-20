@@ -30,7 +30,8 @@ namespace Objects
             void DataDisplay();//вывод данных в отдельные окна
             void SetRotate(float x, float y);//установка поворота объекта
             void SetPosition(float x, float y);//установка позиции объекта
-            
+            void SetView(Matrix4 view);
+            Matrix4 GetView(Matrix4 view);
         }
         public class Transform : IObject
         {
@@ -48,11 +49,13 @@ namespace Objects
             public Label labelNameObject;//надпись имени объекта
             public float EdgeLength;//Длина 
             public float scale;
+            public Matrix4 view = Matrix4.One();
             public void Update(float scale)
             {
                 if (!isErrorUpdate)
                 {
                     camera = new Camera(rotation.X+= rotating.X, rotation.Y += rotating.Y, rotation.Z += rotating.Z, scale);
+                    
                 }
                 
             }
@@ -62,9 +65,10 @@ namespace Objects
                 if (!isErrorUpdate)
                 {
                     camera = new Camera(rotation.X += rotating.X, rotation.Y += rotating.Y, rotation.Z += rotating.Z, 1);
+                    camera.View = view;
                 }
-
             }
+
             public void SetRotate(float x, float y)
             {
                 rotation.X = x;
@@ -77,13 +81,23 @@ namespace Objects
                 position.Y = y;
             }
 
-
             public List<PolyLine3D> SetLines(List<PolyLine3D> l)
             {
                 Lines = l;
                 return Lines;
             }
-                public void CheckTextBox()
+
+            public void SetView(Matrix4 view)
+            {
+                this.view = view;
+            }
+
+            public Matrix4 GetView(Matrix4 view)
+            {
+                return this.view *= view;
+            }
+
+            public void CheckTextBox()
             {
                 try
                 {

@@ -52,7 +52,6 @@ namespace Icosahedron
         private void trackBarSpeed_ValueChanged(object sender, EventArgs e)
         { 
             timer1.Enabled = true;
-            //timer1.Interval = 201 - trackBarSpeed.Value;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,7 +60,7 @@ namespace Icosahedron
         }
 
 
-        public void CreateModel(byte choose, Vector3 position, Vector3 rotation, Vector3 scale, Vector3 rotating)
+        public void CreateModel(byte choose, Vector3 position, Vector3 rotation, Vector3 rotating)
         {
             switch (choose)
             {
@@ -137,7 +136,7 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
             {
                 if (i == ThisChoiseObject.Value)
                 {
-                    _object.GetCamera().View *= Matrix4.CreateScrollingMatrix(e.Delta);
+                    _object.SetView(_object.GetView(Matrix4.CreateScrollingMatrix(e.Delta)));
 
                     Invalidate();
                 }
@@ -149,7 +148,6 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             MyPictureBox.Focus();
-            //MessageBox.Show("ЛООООООООООООООООООООООХ!!!!!!!!!!!!!!!"+e.Delta);
             switch (pointerType)
             {
                 case 0:
@@ -182,15 +180,6 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
                             i++;
                         }
                     }
-                    break;
-                case 2:
-                    if(e.Delta != 0)
-                    {
-                        MessageBox.Show("ЛООООООООООООООООООООООХ!!!!!!!!!!!!!!!");
-                    }
-
-                        
-                    
                     break;
             }
 
@@ -269,6 +258,7 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
                 if (i == ThisChoiseObject.Value)
                 {
                     _object.DataDisplay();
+                    _object.Update();
 
                 }
                 else
@@ -301,7 +291,7 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Vector3 position = new Vector3(), rotation = new Vector3(), scale = new Vector3(), rotating = new Vector3();
+            Vector3 position = new Vector3(), rotation = new Vector3(), rotating = new Vector3();
             try
             {
                 position = new Vector3(int.Parse(SetCreatePosX.Text), int.Parse(SetCreatePosY.Text), int.Parse(SetCreatePosZ.Text));
@@ -319,7 +309,7 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
                     }
                     else
                     {
-                        CreateModel(choosingOfModel, position, rotation, scale, rotating);
+                        CreateModel(choosingOfModel, position, rotation, rotating);
                         scene.PrepareSceneImage();
                     }
                 }
