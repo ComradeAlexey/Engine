@@ -212,6 +212,7 @@ namespace Icosahedron
 
                 if (i == ThisChoiseObject.Value)
                 {
+                    _object.SetName();
                     _object.DataDisplay();
                     _object.Update();
 
@@ -255,6 +256,22 @@ namespace Icosahedron
                 MessageBox.Show("Введите корректные данные");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            foreach (var _object in scene.objects)
+            {
+
+                if (i == ThisChoiseObject.Value)
+                {
+                    scene.objects.RemoveAt(i);
+                    return;
+                }
+                i++;
+            }
+        }
+
         //проверка галочки на чекбоксе цвета
         private bool CheckColor()
         {

@@ -28,4 +28,3 @@ C:\Users\Alexei\Downloads\UpgradeCG\UpgradeCG\Ikos\Ikos\obj\Debug\Icosahedron.cs
 C:\Users\Alexei\Downloads\UpgradeCG\UpgradeCG\Ikos\Ikos\obj\Debug\Icosahedron.csproj.CoreCompileInputs.cache
 C:\Users\Alexei\Downloads\UpgradeCG\UpgradeCG\Ikos\Ikos\obj\Debug\Ikos.exe
 C:\Users\Alexei\Downloads\UpgradeCG\UpgradeCG\Ikos\Ikos\obj\Debug\Ikos.pdb
-C:\Users\Alexei\Downloads\UpgradeCG\UpgradeCG\Ikos\Ikos\obj\Debug\Ikos.Form2.resources

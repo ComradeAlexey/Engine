@@ -31,6 +31,7 @@ namespace Objects
             void SetPosition(float x, float y);//установка позиции объекта
             void SetView(Matrix4 view);//установка матрицы вида
             Matrix4 GetView(Matrix4 view);//получение матрицы вида
+            void SetName();
         }
         public class Transform : IObject
         {
@@ -44,11 +45,15 @@ namespace Objects
             public Vector3 position, rotation, rotating;//различные вектора, позиция, поворот, скейл, вектор скорости
             public TextBox posX, posY, rotX, rotY, rotZ, rotatingX, rotatingY, rotatingZ;//различные текст боксы нужные для ввода данных
             public TextBox getPosX, getPosY, getRotX, getRotY, getRotZ, getRotatingX, getRotatingY, getRotatingZ;//различные текст боксы нужные для ввода данных
-            public  bool isErrorUpdate;//ошибка обновления данных
+            public bool isErrorUpdate;//ошибка обновления данных
             public Label labelNameObject;//надпись имени объекта
             public float EdgeLength;//Длина 
             public Matrix4 view = Matrix4.One();//устанавливаем матрицу вида в стандартное положение 
-
+            //установка имени объекта на label14
+            public void SetName()
+            {
+                labelNameObject.Text = Name;
+            }
             public void Update()
             {
                 if (!isErrorUpdate)
