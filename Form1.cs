@@ -65,10 +65,10 @@ namespace Icosahedron
             switch (choose)
             {
                 case 0:
-                    scene.objects.Add(new Transform(new Cube(new Vector3(-0.5f, 0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), float.Parse(lengthOfTriangle.Text)), scene , position, rotation, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text), scalingCoof));
+                    scene.objects.Add(new Transform(new Cube(new Vector3(-0.5f, 0.5f, -0.5f), new Vector3(0.5f, -0.5f, 0.5f), float.Parse(lengthOfTriangle.Text)), scene , position, rotation, rotating, SetPosX, SetPosY, SetRotX, SetRotY, SetRotZ, label14, GetPosX, GetPosY, GetRotX, GetRotY, GetRotZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text), scalingCoof, GetRotatingX, GetRotatingY, GetRotatingZ));
                     break;
                 case 1:
-                    scene.objects.Add(new Transform(new Models.IcosahedronModel(float.Parse(lengthOfTriangle.Text)), scene, position, rotation, rotating, SetPosX, SetPosY, SetPosZ, SetRotX, SetRotY, SetRotZ, label14, GetPosX, GetPosY, GetPosZ, GetRotX, GetRotY, GetRotZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text), scalingCoof));
+                    scene.objects.Add(new Transform(new Models.IcosahedronModel(float.Parse(lengthOfTriangle.Text)), scene, position, rotation, rotating, SetPosX, SetPosY, SetRotX, SetRotY, SetRotZ, label14, GetPosX, GetPosY,  GetRotX, GetRotY, GetRotZ, SetRotatingX, SetRotatingY, SetRotatingZ, float.Parse(lengthOfTriangle.Text), scalingCoof, GetRotatingX, GetRotatingY, GetRotatingZ));
                     break;
             }
             label9.Text = "" +  scene.objects.Count;
@@ -249,7 +249,6 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
         private void timer2_Tick(object sender, EventArgs e)
         {
             int i = 0;
-            label24.Text = scalingCoof + "";
             ThisChoiseObject.Maximum = scene.objects.Count - 1;
             ThisChoiseObject.Minimum = 0;
             foreach (var _object in scene.objects)
@@ -294,7 +293,7 @@ if (!isLowZeroOrZero(float.Parse(lengthOfTriangle.Text)))
             Vector3 position = new Vector3(), rotation = new Vector3(), rotating = new Vector3();
             try
             {
-                position = new Vector3(int.Parse(SetCreatePosX.Text), int.Parse(SetCreatePosY.Text), int.Parse(SetCreatePosZ.Text));
+                position = new Vector3(int.Parse(SetCreatePosX.Text), int.Parse(SetCreatePosY.Text), 0);
                 rotation = new Vector3(int.Parse(SetCreateRotX.Text), int.Parse(SetCreateRotY.Text), int.Parse(SetCreateRotZ.Text));
                 rotating = new Vector3(int.Parse(SetCreateRotatingX.Text), int.Parse(SetCreateRotatingY.Text), int.Parse(SetCreateRotatingZ.Text));
                 if (!float.TryParse(lengthOfTriangle.Text.Replace('.', ','), out trianglesLength))

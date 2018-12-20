@@ -43,8 +43,8 @@ namespace Objects
             string name;//имя объекта
             public string Name { get => name; set => name = value; }//свойство name
             public Vector3 position, rotation, rotating;//различные вектора, позиция, поворот, скейл, вектор скорости
-            public TextBox posX, posY, posZ, rotX, rotY, rotZ, sclX, sclY, sclZ, rotatingX, rotatingY, rotatingZ;//различные текст боксы нужные для ввода данных
-            public TextBox getPosX, getPosY, getPosZ, getRotX, getRotY, getRotZ, getSclX, getSclY, getSclZ;//различные текст боксы нужные для ввода данных
+            public TextBox posX, posY, rotX, rotY, rotZ, rotatingX, rotatingY, rotatingZ;//различные текст боксы нужные для ввода данных
+            public TextBox getPosX, getPosY, getRotX, getRotY, getRotZ, getRotatingX, getRotatingY, getRotatingZ;//различные текст боксы нужные для ввода данных
             public  bool isErrorUpdate;//ошибка обновления данных
             public Label labelNameObject;//надпись имени объекта
             public float EdgeLength;//Длина 
@@ -103,7 +103,6 @@ namespace Objects
                 {
                     position.X = float.Parse(posX.Text);
                     position.Y = float.Parse(posY.Text);
-                    position.Z = float.Parse(posZ.Text);
                     rotation.X = float.Parse(rotX.Text);
                     rotation.Y = float.Parse(rotY.Text);
                     rotation.Z = float.Parse(rotZ.Text);
@@ -124,13 +123,15 @@ namespace Objects
             {
                 getPosX.Text = position.X + "";
                 getPosY.Text = position.Y + "";
-                getPosZ.Text = position.Z + "";
                 getRotX.Text = rotation.X + "";
                 getRotY.Text = rotation.Y + "";
                 getRotZ.Text = rotation.Z + "";
+                getRotatingX.Text = rotating.X + "";
+                getRotatingY.Text = rotating.Y + "";
+                getRotatingZ.Text = rotating.Z + "";
 
             }
-            public Transform(Cube cube, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ,  TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, float scale)
+            public Transform(Cube cube, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY,  TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getRotX, TextBox getRotY, TextBox getRotZ,  TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, float scale, TextBox getRotatingX, TextBox getRotatingY, TextBox getRotatingZ)
             {
                 Model.Add(cube);
                 Name = "Cube object #" + scene.objects.Count;
@@ -143,7 +144,6 @@ namespace Objects
                 this.labelNameObject = labelNameObject;
                 this.posX = posX;
                 this.posY = posY;
-                this.posZ = posZ;
 
                 this.rotX = rotX;
                 this.rotY = rotY;
@@ -151,7 +151,6 @@ namespace Objects
 
                 this.getPosX = getPosX;
                 this.getPosY = getPosY;
-                this.getPosZ = getPosZ;
 
                 this.getRotX = getRotX;
                 this.getRotY = getRotY;
@@ -160,11 +159,14 @@ namespace Objects
                 this.rotatingX = rotatingX;
                 this.rotatingY = rotatingY;
                 this.rotatingZ = rotatingZ;
+                this.getRotatingX = getRotatingX;
+                this.getRotatingY = getRotatingY;
+                this.getRotatingZ = getRotatingZ;
                 rotating = _rotating;
                 this.EdgeLength = EdgeLength;
             }
 
-            public Transform(IcosahedronModel icosahedronModel, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY, TextBox posZ, TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getPosZ, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, float scale)
+            public Transform(IcosahedronModel icosahedronModel, Scene scene, Vector3 _position, Vector3 _rotation, Vector3 _rotating, TextBox posX, TextBox posY, TextBox rotX, TextBox rotY, TextBox rotZ, Label labelNameObject, TextBox getPosX, TextBox getPosY, TextBox getRotX, TextBox getRotY, TextBox getRotZ, TextBox rotatingX, TextBox rotatingY, TextBox rotatingZ, float EdgeLength, float scale, TextBox getRotatingX, TextBox getRotatingY, TextBox getRotatingZ)
             {
                 Model.Add(icosahedronModel);
                 Name = "Icosahedron object #" + scene.objects.Count;
@@ -176,7 +178,6 @@ namespace Objects
                 this.labelNameObject = labelNameObject;
                 this.posX = posX;
                 this.posY = posY;
-                this.posZ = posZ;
 
                 this.rotX = rotX;
                 this.rotY = rotY;
@@ -184,7 +185,6 @@ namespace Objects
 
                 this.getPosX = getPosX;
                 this.getPosY = getPosY;
-                this.getPosZ = getPosZ;
 
                 this.getRotX = getRotX;
                 this.getRotY = getRotY;
@@ -193,6 +193,9 @@ namespace Objects
                 this.rotatingX = rotatingX;
                 this.rotatingY = rotatingY;
                 this.rotatingZ = rotatingZ;
+                this.getRotatingX = getRotatingX;
+                this.getRotatingY = getRotatingY;
+                this.getRotatingZ = getRotatingZ;
                 rotating = _rotating;
                 this.EdgeLength = EdgeLength;
             }
